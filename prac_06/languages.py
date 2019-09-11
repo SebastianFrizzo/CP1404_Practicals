@@ -14,8 +14,10 @@ def main():
 
 	print("{}\n{}\n{}".format(ruby, python, visual_basic))
 
-	dynamic_languages = [language for language in languages if language.is_dynamic()]
-	print([language for language in dynamic_languages])
+	print("\nThe dynamically typed languages are:")
+	for language in languages:
+		if language.is_dynamic():
+			print(language.name)
 
 
 main()
