@@ -4,3 +4,4 @@ from kivy.uix.button import Button
 from kivy.properties import StringProperty
 
 class NameLabeler(App):
+	def __init__(self):
