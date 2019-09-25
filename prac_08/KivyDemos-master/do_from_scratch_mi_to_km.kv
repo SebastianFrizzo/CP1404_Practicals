@@ -3,23 +3,28 @@ BoxLayout:
 	BoxLayout:
 		orientation: 'horizontal'
 		TextInput:
-			id: input_number
-			text: '34'
-			font_size: 48
-			multiline: False
-		Button:
-			id: convert_number
-			text: 'Convert'
-			font_size: 48
-			on_press: app.handle_convert_number(int(input_number.text))
-		Label:
-			id: output_label
-			font_size: 48
+			size_hint: None, None
+			size: 600, 150
+		    id: input_number
+            text: ''
+            font_size: 48
+            multiline: False
+            on_text: app.handle_convert_number(input_number.text)
 		BoxLayout:
 			orientation: 'vertical'
 			Button:
-				on_press: app.handle_increment(int(input_number.text), 1)
+				on_press: app.handle_increment(input_number.text, 1)
 				text: 'Increase'
 			Button:
-				on_press: app.handle_increment(int(input_number.text), -1)
+				on_press: app.handle_increment(input_number.text, -1)
 				text: 'Decrease'
+#	Button:
+#		id: convert_number
+#		text: 'Convert'
+#		font_size: 48
+#		on_press: app.handle_convert_number(input_number.text)
+	Label:
+		size_hint: None, None
+		size: 700, 150
+		id: output_label
+		font_size: 48
