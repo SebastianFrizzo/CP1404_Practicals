@@ -1,9 +1,12 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
+from kivy.app import StringProperty
 
 
 class ConvertMilesToKilometres(App):
+    result = StringProperty()
+
     def build(self):
         Window.size = (900, 400)
         self.title = 'Convert Miles to Kilometres'
@@ -11,16 +14,12 @@ class ConvertMilesToKilometres(App):
         return self.root
 
     def handle_convert_number(self, value):
-        result = value * 1.60934
-        self.root.ids.output_label.text = str(result)
+        self.result = str(value * 1.60934)
+        self.root.ids.output_label.text = str(self.result)
 
-    # def handle_increase_counter(self, value):
-    #     value += 1
-    #     self.root.ids.input_number.text = value
-    #
-    # def handle_decrease_counter(self, value):
-    #     value -= 1
-    #     self.root.ids.input_number.text = value
+    def handle_increment(self, value, increment_value):
+        value += increment_value
+        self.root.ids.input_number.text = str(value)
 
 
 ConvertMilesToKilometres().run()
