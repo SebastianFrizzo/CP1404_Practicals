@@ -14,13 +14,13 @@ class ConvertMilesToKilometres(App):
         result = value * 1.60934
         self.root.ids.output_label.text = str(result)
 
-    def handle_increase_counter(self, value):
-        value += 1
-        self.root.ids.input_number.text = value
-
-    def handle_decrease_counter(self, value):
-        value += -1
-        self.root.ids.input_number.text = value
+    # def handle_increase_counter(self, value):
+    #     value += 1
+    #     self.root.ids.input_number.text = value
+    #
+    # def handle_decrease_counter(self, value):
+    #     value -= 1
+    #     self.root.ids.input_number.text = value
 
 
 ConvertMilesToKilometres().run()
