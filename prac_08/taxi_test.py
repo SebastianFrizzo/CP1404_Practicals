@@ -1,5 +1,5 @@
-from taxi import Taxi
-from silver_service_taxi import SilverServiceTaxi
+from prac_08.taxi import Taxi
+from prac_08.silver_service_taxi import SilverServiceTaxi
 
 
 def main():
