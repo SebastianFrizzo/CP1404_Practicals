@@ -6,36 +6,32 @@ def main():   # todo update this to use taxis in a list
     current_taxi = None
     choice = None
     total_fare = 0
+    total_distance_driven = 0
     prius = Taxi("Prius", 100)
     limo = SilverServiceTaxi("Limo", 100, 2)
     hummer = SilverServiceTaxi("Hummer", 200, 4)
+    bentley = SilverServiceTaxi("Bentley", 150, 6)
+    taxi_list = [prius, limo, hummer, bentley]
 
     while choice != "Q":
         choice = input("Let's Drive! \n(Q)uit, (C)hoose taxi, (D)rive \n>>> ").upper()
         if choice == "C":
-            print("1 -", prius, "\n2 -", limo, "\n3 -", hummer)
+            print("0 -", prius, "\n1 -", limo, "\n2 -", hummer, "\n3 -", bentley)
             current_taxi = int(input("Choose by number\n>>> "))
-        elif choice == "D":
+        elif choice == "D" and current_taxi is not None:
             trip_distance = int(input("How far will your trip be?: "))
-            if current_taxi == 1:
-                prius.drive(trip_distance)
-                total_fare += float(prius.get_fare())
-                print("Your trip in the {} cost ${}".format(prius.name, prius.get_fare()))
-                prius.start_fare()
-            elif current_taxi == 2:
-                limo.drive(trip_distance)
-                total_fare += float(limo.get_fare())
-                print("Your trip in the {} cost ${}".format(limo.name, limo.get_fare()))
-                limo.start_fare()
-            elif current_taxi == 3:
-                hummer.drive(trip_distance)
-                total_fare += float(hummer.get_fare())
-                print("Your trip in the {} cost ${}".format(hummer.name, hummer.get_fare()))
-                hummer.start_fare()
-            else:
-                print("No taxi chosen")
+            taxi_list[current_taxi].drive(trip_distance)
+            total_fare += float(taxi_list[current_taxi].get_fare())
+            print("Your trip in the {} cost ${}".format(taxi_list[current_taxi].name, taxi_list[current_taxi].get_fare()))
+            taxi_list[current_taxi].start_fare()
+            if current_taxi > len(taxi_list):
+                print("Invalid choice")
+        elif choice == "D":
+            print("Choose a taxi first!")
         print("Current bill = ${:.2f}".format(total_fare))
-    print("Taxis are now \n{}\n{}\n{}".format(prius, limo, hummer))
+    print("Taxis are now \n{}\n{}\n{}\n{}".format(prius, limo, hummer, bentley))
+    total_distance_driven = taxi_list[0].odometer + taxi_list[1].odometer + taxi_list[2].odometer + taxi_list[3].odometer
+    print("You travelled {}km with a final fare of ${:.2f}".format(total_distance_driven, total_fare))
 
 
 main()
