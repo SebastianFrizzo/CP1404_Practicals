@@ -7,5 +7,5 @@ class Guitar:
     def __str__(self):
         return "{} made in the year {}, costs ${}".format(self.name, self.year, self.price)
 
-    def __lt__(self, year):
-        return self.year < year
+    def __lt__(self, other):
+        return self.year > other
