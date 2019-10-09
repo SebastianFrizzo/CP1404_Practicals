@@ -11,7 +11,7 @@ def main():
 	print("Starting directory is: {}".format(os.getcwd()))
 
 	# Change to desired directory
-	os.chdir('Lyrics/Christmas')
+	os.chdir('Lyrics/Special')
 
 	# Print a list of all files in current directory
 	print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
@@ -53,7 +53,17 @@ def demo_walk():
 		print("\tand files:", filenames)
 		print("(Current working directory is: {})".format(os.getcwd()))
 
-		# TODO: add a loop to rename the files
+
+def rename_loop():
+	os.chdir('Lyrics')
+	for directory_name, sub_directories, filename in os.walk('.'):
+		# new_name = filename.replace('txt', 'TXT')
+		# os.rename(filename, new_name)
+		print(filename)
+		print(directory_name)
+
+
+# rename_loop()
 
 
 main()
