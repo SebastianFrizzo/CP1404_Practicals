@@ -2,7 +2,7 @@ from prac_08.taxi import Taxi
 from prac_08.silver_service_taxi import SilverServiceTaxi
 
 
-def main():   # todo update this to use taxis in a list
+def main():
     current_taxi = None
     choice = None
     total_fare = 0
@@ -22,15 +22,16 @@ def main():   # todo update this to use taxis in a list
             trip_distance = int(input("How far will your trip be?: "))
             taxi_list[current_taxi].drive(trip_distance)
             total_fare += float(taxi_list[current_taxi].get_fare())
-            print("Your trip in the {} cost ${}".format(taxi_list[current_taxi].name, taxi_list[current_taxi].get_fare()))
+            print("Your trip in the {} cost ${}".format(taxi_list[current_taxi].name,
+                                                        taxi_list[current_taxi].get_fare()))
             taxi_list[current_taxi].start_fare()
+            total_distance_driven += taxi_list[current_taxi].trip_meter
             if current_taxi > len(taxi_list):
                 print("Invalid choice")
         elif choice == "D":
             print("Choose a taxi first!")
         print("Current bill = ${:.2f}".format(total_fare))
     print("Taxis are now \n{}\n{}\n{}\n{}".format(prius, limo, hummer, bentley))
-    total_distance_driven = taxi_list[0].odometer + taxi_list[1].odometer + taxi_list[2].odometer + taxi_list[3].odometer
     print("You travelled {}km with a final fare of ${:.2f}".format(total_distance_driven, total_fare))
 
 
