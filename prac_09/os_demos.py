@@ -28,7 +28,7 @@ def main():
 			continue
 
 		new_name = get_fixed_filename(filename)
-		print("Renaming {} to {}".format(filename, new_name))
+		# print("Renaming {} to {}".format(filename, new_name))
 
 		# TODO: Try these options one at a time
 		# Option 1: rename file to new name - in place
@@ -56,15 +56,17 @@ def demo_walk():
 
 def rename_loop():
 	os.chdir('Lyrics')
-	for directory_name, sub_directories, filename in os.walk('.'):
+	for directory_name, sub_directories, filenames in os.walk('.'):
+		os.path.join(directory_name, filenames)
+		print(os.path.join(directory_name, filenames))
 		# new_name = filename.replace('txt', 'TXT')
 		# os.rename(filename, new_name)
-		print(filename)
-		print(directory_name)
+		# print(filename)
+		# print(directory_name)
 
 
 # rename_loop()
 
 
-main()
-# demo_walk()
+# main()
+demo_walk()
