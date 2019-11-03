@@ -57,15 +57,12 @@ def demo_walk():
 def rename_loop():
 	os.chdir('Lyrics')
 	for directory_name, sub_directories, filenames in os.walk('.'):
-		os.path.join(directory_name, filenames)
-		print(os.path.join(directory_name, filenames))
-		# new_name = filename.replace('txt', 'TXT')
-		# os.rename(filename, new_name)
-		# print(filename)
-		# print(directory_name)
+		for filename in os.listdir('.'):
+			new_name = filename.replace('txt', 'TXT')
+			os.rename(os.path.join(directory_name, filenames), new_name)
+			print(filenames)
 
-
-# rename_loop()
+rename_loop()
 
 
 # main()
