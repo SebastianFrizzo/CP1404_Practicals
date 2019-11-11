@@ -24,7 +24,8 @@ numbers_file = open("numbers.txt", "w")
 choice = "Y"
 while choice == "Y":
 	number = input("Please enter a number")
-	print(number, file=numbers_file)
+	# print(number, file=numbers_file)
+	numbers_file.write(number + "\n")
 	choice = input("Would you like to enter another number, Y or N").upper()
 	while choice not in ["Y", "N"]:
 		choice = input("Would you like to enter another number, Y or N").upper()
