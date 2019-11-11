@@ -1,4 +1,3 @@
-# import string
 # total = 0
 # count = 0
 # sentinel = int(input("Enter age: "))
@@ -23,6 +22,7 @@
 # 	except ValueError:
 # 		print("Not a number")
 
+# import string
 # sentence = "Hello all, how's it going?"
 # count = 0
 # # for i, char in enumerate(sentence):
@@ -79,11 +79,48 @@
 # print(bobby)
 # print(steve)
 
-ages_dict = {"Bill": 21, "Jane": 34, "Jack": 56}
-name = input("Enter Name: ")
-age = int(input("Enter Age: "))
-ages_dict[name] = age
-print(ages_dict)
-print(ages_dict["Bill"])
-for key in ages_dict:
-	print("{}\t-\t{}".format(key, ages_dict[key]))
+# ages_dict = {"Bill": 21, "Jane": 34, "Jack": 56}
+# name = input("Enter Name: ")
+# age = int(input("Enter Age: "))
+# ages_dict[name] = age
+# print(ages_dict)
+# print(ages_dict["Bill"])
+# for key in ages_dict:
+# 	print("{}\t-\t{}".format(key, ages_dict[key]))
+
+# read_file = open("study_file.txt", "r")
+# state = read_file.read()
+# read_file.close()
+# write_file = open("study_file.txt", "w")
+# if state == "On":
+# 	write_file.write("Off")
+# 	print("Off")
+# else:
+# 	write_file.write("On")
+# 	print("On")
+# write_file.close()
+
+# VOWELS = ["a", "e", "i", "o", "u"]
+#
+# count = 0
+# name = "Bobby McAardvark"
+# for letter in name.lower():
+# 	if letter in VOWELS:
+# 		count += 1
+# print("Out of {} letters, {} has {} vowels".format(len(name), name, count))
+
+def get_longest_line(file_name):
+	longest_line = ""
+	length_longest_line = 0
+	index = 0
+	read_file = open(file_name, "r")
+	for i, line in enumerate(read_file):
+		print(line)
+		if len(line) > length_longest_line:
+			length_longest_line = len(line)
+			longest_line = line
+			index = i+1
+	print(index, longest_line)
+
+
+get_longest_line("study_file.txt")
